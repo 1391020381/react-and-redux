@@ -29,3 +29,38 @@
 1. 唯一数据源
 2. 保持状态只读
 3. 数据改变只能通过纯函数完成。
+
+* 一个React组件基本上就是完成以下功能:
+1. 读取store中数据初始化 state 并监听state的变化更新视图
+2. 根据当前的props和state 渲染出用户界面
+
+* 容器组价 负责和Redux Store打交道的组件
+* 展示组件 负责渲染界面的组件 根据props来渲染结果不需要 state
+## Provider 
+* 我们可以创建一个特殊的React组件,它将是一个通用的context提供者,可以应用在任何一个应用中,我们把这个叫做 Provider 当做全局的 context
+  
+```
+import React,{Component} from 'react'
+
+class Provider extends Component {
+    getChildContext(){  // 返回的就是 Context对象
+        return {
+            store:this.props.store
+        }
+    }
+    render(){
+        return this.props.children
+    }
+}
+Provider.childContentTypes = {
+    store:PropTypes.object
+}
+
+// 子组件需设置  
+constructor(props,context){
+    super(props,context)
+}
+ConterContainer.contextTypes = {  在子组件中   this.context.store.getState()[this.prop.caption]
+    store.PropTypes.object
+}
+```
