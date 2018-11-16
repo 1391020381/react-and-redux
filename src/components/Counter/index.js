@@ -49,3 +49,10 @@ class Counter extends Component {
 }
 
 export default Counter
+
+
+/**
+ * 一个React组件基本上要完成一个两个功能
+ * 1. 和Redux Store打交道,读取Store的状态，用于初始化组件的状态,同时还要监听Store的状态改变, 更新组件状态。
+ * 
+ */

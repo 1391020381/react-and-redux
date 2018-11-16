@@ -57,10 +57,14 @@ Provider.childContentTypes = {
 }
 
 // 子组件需设置  
-constructor(props,context){
-    super(props,context)
+constructor(){
+    super(...arguments)
 }
 ConterContainer.contextTypes = {  在子组件中   this.context.store.getState()[this.prop.caption]
     store.PropTypes.object
 }
 ```
+
+# react-redux
+1. connect:连接容器组件和傻瓜组件
+2. Provider:提供包含store的context
