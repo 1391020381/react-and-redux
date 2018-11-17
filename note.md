@@ -64,7 +64,25 @@ ConterContainer.contextTypes = {  在子组件中   this.context.store.getState(
     store.PropTypes.object
 }
 ```
-
+## React应用的两个方法
+1. 第一是把一个组件拆分为容器组件和傻瓜组件
+2. 是用React的Context来提供一个所有组件都可以直接访问的Context。
+3. react-redux 就是把它们抽离出来复用的。
 # react-redux
 1. connect:连接容器组件和傻瓜组件
-2. Provider:提供包含store的context
+* 把Store上的状态转化为内层傻瓜组件的prop
+* 把内层傻瓜组件中的用户动作转化为派送给Store的动作。
+* mapStateToProps mapDispatchToProps  
+```
+import {connect} from 'react-redux'
+export default connect(a,b)(Counter)
+
+function a(b,c){
+    return
+}
+```
+1. Provider:提供包含store的context
+* subscribe
+* dispatch
+* getState
+* react-redux 定义了Provider的componentWillReceiveProps函数在每次重新渲染时都会调用到。
