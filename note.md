@@ -34,8 +34,32 @@
 1. 读取store中数据初始化 state 并监听state的变化更新视图
 2. 根据当前的props和state 渲染出用户界面
 
+```
+getOwnState(){   store.getState()获取 store上存储的所有状态
+    return {
+        value:store.getState()[this.props.caption]
+    }
+}
+onChange(){
+    this.setState(this.getOwnState())
+}
+
+componentDidMount(){
+    store.subscribe(this.onChange)
+}
+
+componentWillUnmount(){
+    store.unsubscribe(this;onChange)
+}
+
+// 在组件componentDidMount函数中,我们通过Store的subscribe监听其变化,只要Store状态发生变化,就会调用这个组件的onChange方法。在组件的 componentDidMount中的动作对应。
+```
+
 * 容器组价 负责和Redux Store打交道的组件
 * 展示组件 负责渲染界面的组件 根据props来渲染结果不需要 state
+* 所谓Context 就是 '上下文环境' 让一个树状组件上所有组件都能访问一个共同的对象,为了完成这个任务,需要上级和下级组件配合。
+1. 首先,上级组件要宣称自己支持context,并且提供了一个函数来返回代表Context的对象。
+2. 然后,这个上级组件之下的所有子孙组件,只要宣称自己需要这个context,就可以了,通过this.context访问到这个共同的环境对象。
 ## Provider 
 * 我们可以创建一个特殊的React组件,它将是一个通用的context提供者,可以应用在任何一个应用中,我们把这个叫做 Provider 当做全局的 context
   
@@ -64,6 +88,8 @@ ConterContainer.contextTypes = {  在子组件中   this.context.store.getState(
     store.PropTypes.object
 }
 ```
+
+* 对于Redux,因为Redux的Store封装的很好,没有提供直接修改状态的功能。
 ## React应用的两个方法
 1. 第一是把一个组件拆分为容器组件和傻瓜组件
 2. 是用React的Context来提供一个所有组件都可以直接访问的Context。
