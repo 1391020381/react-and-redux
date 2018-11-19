@@ -99,6 +99,8 @@ ConterContainer.contextTypes = {  在子组件中   this.context.store.getState(
 * 把Store上的状态转化为内层傻瓜组件的prop
 * 把内层傻瓜组件中的用户动作转化为派送给Store的动作。
 * mapStateToProps mapDispatchToProps  
+* mapStateToProps 把Store上的状态转化为内层组件的props,其实就是一个映射关系
+* 把内层傻瓜组件暴露出来的函数类型的prop关联上dispatch函数调用。每个prop代表的回调函数的主要区别就是dispatch函数的参数不同,这个就是mapDispatchToProps函数做的事情。
 ```
 import {connect} from 'react-redux'
 export default connect(a,b)(Counter)
