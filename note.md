@@ -114,3 +114,12 @@ function a(b,c){
 * dispatch
 * getState
 * react-redux 定义了Provider的componentWillReceiveProps函数在每次重新渲染时都会调用到。
+
+
+
+# ES6 Module 的语法
+* ES6模块的设计思想是尽量的静态化,使得编译时就能确定模块的依赖关系,以及输入和输出的变量。
+* CommonJS和AMD模块,都只能在运行时确定这些东西。
+* ES6模块不是对象,而是通过export命令显示指定输出的代码,再通过import命令输入。
+* 模块功能主要有命令构成：export和import。export命令用于规定模块的对外接口,import命令用于输入其他模块提供的功能。
+* 除了指定加载某个输出值,还可以使用整体加载,即用星号 * 指定一个对象,所有输出值都加载在这个对象上面。
