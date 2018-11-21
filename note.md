@@ -123,3 +123,41 @@ function a(b,c){
 * ES6模块不是对象,而是通过export命令显示指定输出的代码,再通过import命令输入。
 * 模块功能主要有命令构成：export和import。export命令用于规定模块的对外接口,import命令用于输入其他模块提供的功能。
 * 除了指定加载某个输出值,还可以使用整体加载,即用星号 * 指定一个对象,所有输出值都加载在这个对象上面。
+
+# React高级组件
+1. 高阶组件的概念及应用
+2. 以函数为子组件的模式
+
+* 高阶组件(Higher Order Component ,HOC) 并不是 React提供的某种API,而是使用Reactde 一种模式,用于增强现有组件的功能。
+* 简单来说,一个高阶组件就是一个函数,这个函数接受一个组件作为输入,然后返回一个新的组件作为结果,而且,返回的新的组件拥有了输入组件所不具有的功能。
+
+
+# 高阶组件的意义
+1. 重用代码
+2. 修改现有React组件的行为
+# 高阶组件实现方式
+* 根据返回的新组件和传入组件参数的关系,高阶组件的实现方式可以分为两大类：
+1. 代理方式的高阶组件  返回的新组件类直接继承自 React.Component类
+* 操作prop
+* 访问ref
+* 抽取状态
+* 包装组件
+2. 继承方式的高阶组件   继承方式的高阶组件采用继承关系关联作为参数的组件和返回的组件
+```
+function removeUserProp(WrappedComponent){
+    return class NewComponent extends WrappedComponent{
+        render(){
+            const {user,...otherProps} = this.props
+            this.props = otherProps;
+            return super.render();
+        }
+    }
+}
+
+```
+
+* 需要注意,在代理方式下WrappedComponent经历了一个完整的生命周期,但在继承方式下super.render只是一个生命周期中的一个函数而已；
+* 在代理方式下产生的新组件和参数组件是两个不同的组件,一次渲染，两个组件都要经历各自的生命周期,在继承方式下两者合二为一,只有一个生命周期。
+
+
+`优先考虑组合,然后才考虑继承。即我们应该尽量使用代理方式来构建高阶组件。`
