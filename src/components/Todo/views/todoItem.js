@@ -11,7 +11,7 @@ const TodoItem = ({ onToggle, onRemove, completed, text }) => {
         >
             <input className="toggle" type="checkbox" {...checkedProp} readOnly onClick={onToggle} />
             <label className="text">{text}</label>
-            <button className="remove" onClick="onRemove">x</button>
+            <button className="remove" onClick={onRemove}>x</button>
         </li>
     )
 }

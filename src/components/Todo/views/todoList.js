@@ -59,11 +59,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-/*
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-  onToggleTodo: toggleTodo,
-  onRemoveTodo: removeTodo
-}, dispatch);
-*/
-
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
