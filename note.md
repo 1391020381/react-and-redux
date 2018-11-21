@@ -161,3 +161,19 @@ function removeUserProp(WrappedComponent){
 
 
 `优先考虑组合,然后才考虑继承。即我们应该尽量使用代理方式来构建高阶组件。`
+
+
+* 以函数为子组件
+```
+const loggedinUser = 'mock user';
+class AddUserProp extends React.Component {
+    render(){
+        const user = loggedinUser;
+        return this.props.children(user)
+    }
+}
+
+AddUserProp.propTypes = {
+    children:React.PropTypes.func.isRequired
+}
+```
