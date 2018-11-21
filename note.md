@@ -164,6 +164,8 @@ function removeUserProp(WrappedComponent){
 
 
 * 以函数为子组件
+
+* 以函数为子组件的模式 要求必须有子组件的存在,而且这个子组件比逊是一个函数。在组件实例的生命周期中,this.props.children引用的就是子组件,render函数会直接把this.props.children当做函数来调用,得到的结果就可以作为render返回结果的一部分。
 ```
 const loggedinUser = 'mock user';
 class AddUserProp extends React.Component {
@@ -177,3 +179,14 @@ AddUserProp.propTypes = {
     children:React.PropTypes.func.isRequired
 }
 ```
+
+* 虽然成员变量和组件状态都是特定于某个组件实例的数据,但是组价状态的改变可以引发组件的更新过程，而普通的成员变量不会。
+
+* npm install --save redux-thunk
+
+* 异步action对象 不是一个普通JavaScript对象而是一个函数。
+* redux-thunk的工作检查action对象是不是函数。action对象是函数,那就执行这个函数,并把 Store的 dispatch函数和getState函数作为参数传递到函数中出,不会到reducer函数。
+
+# React-Router
+* Router 在整个 应用中只需要一个实例,代表整个路由器
+* 后者Route则代表每个路由对应页面的路由规则,一个应用中应该会有对个Route实例。
