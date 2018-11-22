@@ -1,19 +1,22 @@
-import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+// import React from 'react'
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Home from './pages/Home.js'
-import About from './pages/About.js'
-import NotFound from './pages/NotFound.js'
+// // import App from './pages/App.js'
+// import Home from './pages/Home.js'
+// import About from './pages/About.js'
+// import NotFound from './pages/NotFound.js'
+// import { view as ToMenu } from './components/ToMenu'
 
+// const Routes = () => (
+//     <Router>
+//         <Switch>
+//             <ToMenu></ToMenu>
+//             <Route path="/home" component={Home}></Route>
+//             <Route path="/about" component={About}></Route>
+//             <Route path="*" component={NotFound}></Route>
+//         </Switch>
+//     </Router>
+// )
 
-const Routes = () => (
-    <Router>
-        <div>
-            <Route path="/home" component={Home}></Route>
-            <Route path="/about" component={About}></Route>
-            <Route path="*" component={NotFound}></Route>
-        </div>
-    </Router>
-)
-
-export default Routes
+import BasicExample from './components/BasicExample'
+export default BasicExample

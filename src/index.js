@@ -5,9 +5,10 @@ import './index.css';
 // import App from './App';
 // import store from './Store.js';
 import * as serviceWorker from './serviceWorker';
-import Routes from './Routers.js'
+// import Routes from './Routers.js'
+import BasicExample from './Routers'
 ReactDOM.render(
-    <Routes></Routes>,
+    <BasicExample></BasicExample>,
     document.getElementById('root')
 );
 
