@@ -2,6 +2,7 @@
   "name": "react-and-redux",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://www.weather.com.cn/",
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
@@ -51,6 +52,7 @@
     "react-router-redux": "^4.0.8",
     "redux": "^4.0.1",
     "redux-immutable-state-invariant": "^2.1.0",
+    "redux-thunk": "^2.3.0",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",
