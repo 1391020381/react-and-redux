@@ -187,6 +187,19 @@ AddUserProp.propTypes = {
 * 异步action对象 不是一个普通JavaScript对象而是一个函数。
 * redux-thunk的工作检查action对象是不是函数。action对象是函数,那就执行这个函数,并把 Store的 dispatch函数和getState函数作为参数传递到函数中出,不会到reducer函数。
 
+* 异步action构造函数的代码基本上都是这样的套路
+
+```
+exprot const sampleAsyncAction = ()=>{
+    return (dispatch,getState)=>{
+        // 在这个函数可以调用异步函数,自行决定在合适的时机通过 dispatch参数
+        // 派发出新饿action对象
+    }
+}
+```
+# 拓展Redux
+1. 中间件
+2. Store Enhancer
 # React-Router
 * Router 在整个 应用中只需要一个实例,代表整个路由器
 * 后者Route则代表每个路由对应页面的路由规则,一个应用中应该会有对个Route实例。
