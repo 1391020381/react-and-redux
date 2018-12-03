@@ -203,3 +203,7 @@ exprot const sampleAsyncAction = ()=>{
 # React-Router
 * Router 在整个 应用中只需要一个实例,代表整个路由器
 * 后者Route则代表每个路由对应页面的路由规则,一个应用中应该会有对个Route实例。
+
+
+
+* react-redux中connect的装饰器用法@connect详解
